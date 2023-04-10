@@ -67,4 +67,6 @@ group :development do
 end
 gem 'simplecov', require: false, group: :test
 
+# devise gem for authentication
+gem 'devise', '~> 4.9.2'
 
