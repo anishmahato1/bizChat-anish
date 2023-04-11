@@ -1,4 +1,5 @@
-# configuration for valid domains
-domains:
-  - bajratechnologies.com
-  - domain2.com
+#write your approved domains here:
+  shared:
+    domains: 
+      - bajratechnologies.com
+      - domain2.com
