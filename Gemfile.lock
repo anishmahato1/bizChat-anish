@@ -91,6 +91,9 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    ffi (1.15.5)
+    font-awesome-sass (6.4.0)
+      sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -185,6 +188,8 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -229,12 +234,13 @@ DEPENDENCIES
   debug
   devise (~> 4.9.2)
   factory_bot_rails (~> 6.2.0)
+  font-awesome-sass (~> 6.4.0)
   importmap-rails
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   rspec-rails (~> 6.0.1)
-  simplecov
+  simplecov (~> 0.22.0)
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
