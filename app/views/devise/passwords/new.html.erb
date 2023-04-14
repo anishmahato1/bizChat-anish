@@ -1,0 +1,25 @@
+<div class="box-container">
+  <div class="form-container">
+    <h1 class="logo"><span class="logo-first">biz</span>Chat</h1>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <h2 class="form-title">Forgot your password ?</h2>
+      <p class="form-info">Enter your registered email below to receive code!</p>
+
+      <%= render partial: "devise/shared/notice_alert" %>
+      
+
+      <%= render "devise/shared/email_field", f: f %>
+      <%= render "devise/shared/error_messages" , field: :email %>
+      
+      <%=f.submit "Send" %>
+      <% end %>
+      <p>
+        <small>Not registered yet ? </small>
+        <%= link_to "Create new account" , new_user_registration_path, class: "text-red" %><br>
+      </p>
+  </div>
+  <div class="image-container">
+    <%= image_tag("forgot.png", alt: "image not found" , class: "vertical-center" ) %>
+  </div>
+</div>

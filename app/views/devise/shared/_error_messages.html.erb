@@ -1,0 +1,7 @@
+<% if resource.errors[field].any? %>
+  <div id="error_explanation" data-turbo-cache="false">
+    <%= field.capitalize%> <%=resource.errors[field].to_sentence%>
+  </div>
+<% else %>
+  <br>
+<% end %>

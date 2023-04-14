@@ -33,5 +33,7 @@ module BizChatAnish
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # valid domains for registration
+    config.approved_domains = config_for(:approved_domains)['domains']
   end
 end

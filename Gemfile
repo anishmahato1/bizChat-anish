@@ -65,6 +65,11 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-gem 'simplecov', require: false, group: :test
+gem 'simplecov', '~> 0.22.0' , require: false, group: :test
 
+# devise gem for authentication
+gem 'devise', '~> 4.9.2'
+
+#library for icons
+gem "font-awesome-sass", "~> 6.4.0"
 

@@ -1,0 +1,16 @@
+<div class="box-container">
+  <div class="form-container">
+    <h1 class="logo"><span class="logo-first">biz</span>Chat</h1>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.hidden_field :reset_password_token %>
+      <h2 class="form-title">Reset password</h2>
+      <p class="form-info">Please choose your new password</p>
+        
+      <%= render partial: "devise/shared/notice_alert" %>
+        
+      <%= render "devise/shared/password_field", f: f, label: "New Password" %>
+      
+      <%= f.submit "Change my password" %>
+    <% end %>
+  </div>
+</div>

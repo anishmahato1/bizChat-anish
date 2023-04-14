@@ -1,0 +1,28 @@
+<div class="box-container">
+  <div class="form-container">
+    <h1 class="logo"><span class="logo-first">biz</span>Chat</h1>
+
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <h2 class="form-title">Resend confirmation instructions</h2>
+      <p class="form-info">Enter your registered email below to receive code!</p>
+      
+      <%= render partial: "devise/shared/notice_alert" %>
+
+      <div class="field">
+        <%= f.label :email, "Email address" , class: "label-text" %>
+        <div class="left-inner-addon">
+          <i class="fa-solid fa-envelope"></i>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" , value:
+                (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        </div>
+        <%= render "devise/shared/error_messages" , field: :email %>
+      </div>
+
+      <%= f.submit "Resend" %>
+
+    <% end %>
+    <p>
+      <small>Not registered yet ? </small>
+      <%= link_to "Create new account" , new_user_registration_path, class: "text-red" %>
+    </p>
+</div>
