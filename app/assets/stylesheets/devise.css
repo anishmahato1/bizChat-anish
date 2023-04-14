@@ -34,7 +34,7 @@ a:hover {
 .logo {
   font-weight:500;
   font-size: 24px;
-  line-height: 28px;
+  line-height: 26px;
   color: var( --red-dark-color);
   text-align: center;
 }
@@ -42,7 +42,7 @@ a:hover {
 .logo-first {
   font-style: italic;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 400px;
   display: inline-block;
   padding: 5px 10px;
   background-color: var( --red-dark-color);
@@ -53,13 +53,15 @@ a:hover {
 .notice{
   color: green;
   text-align: center;
-  margin: 0;
+  padding-bottom: 15px ;
+  margin: 10px 0;
 }
 
 .alert{
   color: var(--red-dark-color);
   text-align: center;
-  margin: 0;
+  padding-bottom: 15px;
+  margin: 10px 0;
 }
 
 
@@ -74,13 +76,16 @@ a:hover {
   transform: translate(-50%, -50%);
   display: flex;
   box-shadow: 0 4px 8px 0  rgba(0, 0, 0, 0.2);
+  padding: 0px 30px ;
+}
+
+.signin-box-container{
   padding: 10px 220px 50px 220px;
 }
 
-
 .vertical-center {
   position: relative;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
 }
 
@@ -90,7 +95,7 @@ a:hover {
 
 .form-title {
   font-size: 1.5em;
-  line-height: 32px;
+  line-height: 24px;
   color: #736D6D;
   text-align: center;
 } 
@@ -98,7 +103,7 @@ a:hover {
 .form-info {
   font-weight: 400;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 18px;
   color: #828282;
   text-align: center;
 }
@@ -176,4 +181,13 @@ input[type="radio"]:checked {
   opacity: 0.7; 
 } 
 
+.image-container{
+  padding-left: 50px;
+}
 
+#error_explanation{
+  font-size: 12px;
+  color: var(--red-light-color);
+  padding-bottom: 8px;
+
+}
