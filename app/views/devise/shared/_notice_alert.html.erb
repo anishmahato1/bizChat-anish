@@ -1,0 +1,7 @@
+<% %i[notice alert].each do |type| %>
+  <%= content_tag(:p, flash[type], class: type.to_s) if flash[type].present? %>
+<% end %>
+<!-- Maintains gap when flash messages are not present using single breakline -->
+<% unless flash.present? %>
+  <br>
+<% end %>
