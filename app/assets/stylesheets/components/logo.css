@@ -1,0 +1,16 @@
+.logo {
+    font-size: var(--font-size-l);
+    color: var( --red-dark-color);
+    text-align: center;
+  }
+  
+  .logo-first {
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400px;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var( --red-dark-color);
+    color: white;
+    border-radius: 20px;
+  }

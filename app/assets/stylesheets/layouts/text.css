@@ -1,0 +1,10 @@
+
+.text-red {
+    color: var( --red-dark-color);
+  }
+  
+  .text-centre {
+    text-align: center;
+  }
+  
+  

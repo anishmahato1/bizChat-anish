@@ -1,0 +1,10 @@
+.notice{
+    color: green;
+    text-align: center;
+  }
+  
+  .alert{
+    color: var(--red-dark-color);
+    text-align: center;
+  }
+  
