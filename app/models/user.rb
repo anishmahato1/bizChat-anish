@@ -19,6 +19,6 @@ class User < ApplicationRecord
   end
 
   def squish_name_and_email_spaces
-    %i[name email].each { |attr| send("#{attr}=", send(attr).squish) if send(attr).present? }
+    [name, email].each { |attr| attr.squish! if attr.present? }
   end
 end
