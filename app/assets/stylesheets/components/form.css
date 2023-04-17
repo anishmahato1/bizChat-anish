@@ -1,0 +1,89 @@
+.form-container {
+    min-width: 400px;
+  }
+  
+  .form-title {
+    font-size: 2rem;
+    color: #736D6D;
+    text-align: center;
+  } 
+  
+  .form-info {
+    font-weight: 400;
+    font-size: var(--font-size-s);
+    line-height: 2.5;
+    color: #828282;
+    text-align: center;
+  }
+  
+  
+  .label-text {
+    color: var(--black-color);
+    line-height: 1.8;
+  }
+  
+  select,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 5px 0; 
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  
+  .left-inner-addon {
+    position: relative;
+  }
+  
+  .left-inner-addon input {
+    padding-left: var(--space-xl) !important;
+  }
+  
+  .left-inner-addon i {
+    position: absolute;
+    padding: 18px 12px;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    color: var(--white-color);
+    background-color: var( --red-dark-color);
+    padding: 10px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+  
+  
+  input[type="radio"] {
+    appearance: none;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-width: 5px;
+    border: 2px solid black;
+  }
+  
+  /* appearance for checked radiobutton */
+  input[type="radio"]:checked {
+    border: 5px solid var( --red-dark-color);
+  }
+  
+  .radio-label-text {
+    position: relative;
+    width: 24px;
+    height: 14px;
+    left: -15px;
+    top: -5px;
+    margin-left: 30px;
+    margin-top: 5px;
+    color: black;
+    opacity: 0.7; 
+  } 
