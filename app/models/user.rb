@@ -6,11 +6,24 @@ class User < ApplicationRecord
 
   enum gender: { male: 0, female: 1, other: 2 }
 
-  has_and_belongs_to_many :chats, join_table: :chats_users
+  has_many :user_chats
+  has_many :chats, through: :user_chats
+
+  has_many :channels, through: :chats
+
+
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, if: :domain_is_ok
   validates :name, presence: true, format: { with: /\A[a-zA-Z ]+\z/, message: 'only allows letters and spaces' }
   validates :gender, presence: true, inclusion: { in: User.genders.keys }
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name email]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    []
+  end
 
   private
 
