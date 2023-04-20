@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_17_111046) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_18_182500) do
   create_table "channels", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", limit: 100
@@ -30,13 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_111046) do
     t.index ["last_message_id"], name: "index_chats_on_last_message_id"
   end
 
-  create_table "chats_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "chat_id", null: false
-    t.index ["chat_id", "user_id"], name: "index_chats_users_on_chat_id_and_user_id"
-    t.index ["user_id", "chat_id"], name: "index_chats_users_on_user_id_and_chat_id"
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text "content", limit: 100
     t.integer "sender_id", null: false
@@ -45,6 +38,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_111046) do
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
+  create_table "user_chats", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "chat_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_user_chats_on_chat_id"
+    t.index ["user_id"], name: "index_user_chats_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,4 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_111046) do
   add_foreign_key "chats", "messages", column: "last_message_id"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users", column: "sender_id"
+  add_foreign_key "user_chats", "chats"
+  add_foreign_key "user_chats", "users"
 end

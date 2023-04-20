@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "search-results" do %>
+<div  class="search-results">
+  <% @users.each do |user| %>
+      <div class="search-results-each">
+          <%= user.name %>
+          <%= user.email %>
+      </div>
+      <% end %>
+</div><% end %>
