@@ -1,1 +1,50 @@
+<div class="homepage-box">
 
+    <div class="homepage-left-panel">
+      <div class="user-card">
+        <h1>Chat</h1>
+          <%= image_tag(current_user.avatar.variant(:thumb), alt: "User Avatar") if current_user.avatar.attached? %>
+          
+      </div>
+  
+      <div class="homepage-left-panel-below">
+        <div class="channels-box">
+          <h2>
+            Channels
+            <%= image_tag("add_button", class: "btn-create") %>
+          </h2>
+        
+          <div class="channels">
+            <%= render partial: "channel", collection: @channels %>
+        </div>
+        </div>
+      
+        <div class="search">
+          <h2>
+            Chats 
+          </h2>
+          <%= render partial: "search_form" %>
+        </div>
+  
+        <%= turbo_frame_tag "search-results" %>
+  
+  
+          
+        <div id="private-chats" class="private-chats">
+            <h2>ALL</h2>
+            <%= render partial: "inbox", collection: @inboxes %>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+  
+    <div class="homepage-central-panel">
+      
+    </div>
+    <div class="homepage-right-panel">
+      <>
+    </div>
+  </div>
