@@ -4,7 +4,8 @@
       <div class="user-card">
         <h1>Chat</h1>
           <%= image_tag(current_user.avatar.variant(:thumb), alt: "User Avatar") if current_user.avatar.attached? %>
-          
+         <h2><%=current_user.name%></h2> 
+         <p>Active</p>
       </div>
   
       <div class="homepage-left-panel-below">
@@ -26,12 +27,12 @@
           <%= render partial: "search_form" %>
         </div>
   
-        <%= turbo_frame_tag "search-results" %>
+        <%= turbo_frame_tag "search-results",class: "search-results" %>
   
   
           
         <div id="private-chats" class="private-chats">
-            <h2>ALL</h2>
+            <h3>ALL</h3>
             <%= render partial: "inbox", collection: @inboxes %>
         </div>
       </div>
@@ -45,6 +46,6 @@
       
     </div>
     <div class="homepage-right-panel">
-      <>
+      
     </div>
   </div>

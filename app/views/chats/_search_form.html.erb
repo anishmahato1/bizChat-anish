@@ -1,10 +1,9 @@
-<%=turbo_frame_tag "search-form" do %>
-  <%= search_form_for @q, url: search_path , html: { class: 'search-form' }, data:{turbo_frame: "search-results"},format: :turbo_stream do |f| %>
-    <div class="search-wrapper">
-      <%= f.search_field :name_or_email_cont, class: 'search-input', placeholder: 'Search'%>
+<%= turbo_frame_tag "search-form",class: 'search-form' do %>
+  <%= search_form_for @q, url: search_path , data:{turbo_frame: "search-results", controller: "form"} do |f| %>
+    <input type="hidden" name="format" value="turbo_stream">
+    <div class="right-inner-addon ">
+      <%= f.search_field :name_or_email_cont, class: 'search-input', placeholder: 'Search',data:{action: "input->form#submit"} %>
       <i class="fa-solid fa-magnifying-glass"></i>
-      <%= f.submit %>
     </div>
   <% end %>
 <% end %>
-

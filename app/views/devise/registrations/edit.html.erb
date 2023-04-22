@@ -50,7 +50,7 @@
     <p class="bottom-bar">
       <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,class: "text-red" %>
 
-      <%= link_to "Logout", destroy_user_session_path  %>
+      <%= button_to "Logout", destroy_user_session_path, method: :delete %>
       <%= link_to "Back", :back %>
     </p>
   </div>

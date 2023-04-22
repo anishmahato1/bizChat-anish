@@ -1,14 +1,12 @@
 <%= turbo_stream.remove "private-chats" %>
 
 <%= turbo_stream.update "search-results" do %>
-<div  class="search-results">
     <% @users.each do |user| %>
         <div class="search-results-each">
             <%= user.name %>
             <%= user.email %>
         </div>
         <% end %>
-</div>
 <% end %>
 
 
