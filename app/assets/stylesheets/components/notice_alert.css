@@ -1,10 +1,17 @@
-.notice{
-    color: green;
+.notice, .alert{
     text-align: center;
+    width: 80%;
+    overflow-wrap: normal;
+    margin: auto;
+
   }
   
+  .notice{
+    color: green !important;
+  }
+
   .alert{
-    color: var(--red-dark-color);
-    text-align: center;
+    color: var(--red-dark-color) !important;
+    
   }
   

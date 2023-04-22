@@ -1,21 +1,21 @@
 .form-container {
-    min-width: 400px;
+  width: 400px;
   }
-  
+
   .form-title {
-    font-size: 2rem;
-    color: #736D6D;
-    text-align: center;
+  font-size: 2rem;
+  color: #736D6D;
+  text-align: center;
   } 
-  
+
   .form-info {
-    font-weight: 400;
-    font-size: var(--font-size-s);
-    line-height: 2.5;
-    color: #828282;
-    text-align: center;
+  font-weight: 400;
+  font-size: var(--font-size-s);
+  line-height: 2.5;
+  color: #828282;
+  text-align: center;
   }
-  
+
   
   .label-text {
     color: var(--black-color);
@@ -23,6 +23,7 @@
   }
   
   select,
+  input[type="search"],
   input[type="text"],
   input[type="email"],
   input[type="password"] {

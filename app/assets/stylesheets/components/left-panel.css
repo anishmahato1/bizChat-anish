@@ -1,0 +1,152 @@
+.user-card{
+    flex: 0 1 260px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.user-card h1{
+    color: var(--red-dark-color);
+    margin: 15px auto 15px 10px;
+}
+
+.user-card img{
+    display: block;
+    margin: 0 auto;
+    border-radius: 200px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+}
+
+
+  .user-card h2 {
+    text-align: center;
+  }
+
+  .user-card p{
+    padding: 0 10px;
+    background-color: greenyellow;
+    border-radius: 20px;
+    font-size: x-small;
+  }
+  
+
+  
+ .homepage-left-panel-below {
+    flex: 0 1 780px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+   
+ }
+
+ .channels-box{
+    flex: 0 1 120;
+}
+
+.channels-box h2
+{
+    color: var(--black-light);
+    line-height: 1.1;
+    font-weight: 400;
+    padding-left: 5px;
+
+}
+
+
+
+.channels{
+    display: flex;
+    overflow-x: scroll;
+    width: 100%;
+    
+}
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ .channels::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .channels {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  } 
+
+  .btn-create {
+    float: right;
+    margin: 3px;
+    transform: scale(0.8);
+
+}
+
+.btn-create:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+.channels-each{
+    display: inline-block;
+    
+    margin:0 10px;
+}
+
+.channel-logo{
+    font-size: 24px;
+    background-color: rgb(206, 119, 14);
+    border-radius: 50%;
+    color: var(--white-color);
+    line-height: 2.2;
+    text-align: center;
+    margin: var(--space-xs);
+    margin-bottom: 4px;
+    width: 55px;
+
+}
+
+.channel-name{
+    text-align: center;
+    overflow: hidden;
+    color: #C0C0C0;
+    font-size: 0.8rem;
+    max-height: 1rem;
+}
+
+.search{
+    flex: 0 0 80px;
+    background-color: var(--white-color);
+    margin-top: 15px
+}
+
+.search h2{
+    padding-left: 5px;
+
+
+}
+
+.private-chats{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    overflow-y: scroll;
+}
+.search-results{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+}
+.inboxes-each{
+    width: 80%;
+    height: 75px;
+    display: flex;
+}
+
+.private-chats-avatar{
+    display:inline-block;
+    border: 50%;
+
+}
