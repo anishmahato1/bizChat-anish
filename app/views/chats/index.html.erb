@@ -10,31 +10,33 @@
   
       <div class="homepage-left-panel-below">
         <div class="channels-box">
-          <h2>
+          <h3>
             Channels
             <%= image_tag("add_button", class: "btn-create") %>
-          </h2>
-        
+          </h3>
+          <%= turbo_frame_tag "channels" do%>
           <div class="channels">
-            <%= render partial: "channel", collection: @channels %>
+            <%= @channels.any? ? render(partial: "channel", collection: @channels) : "<p class='no-groups'>No Groups</p>".html_safe %>
+          </div>
+          <% end %>
         </div>
-        </div>
-      
-        <div class="search">
-          <h2>
-            Chats 
-          </h2>
-          <%= render partial: "search_form" %>
-        </div>
-  
-        <%= turbo_frame_tag "search-results",class: "search-results" %>
-  
-  
-          
-        <div id="private-chats" class="private-chats">
-            <h3>ALL</h3>
-            <%= render partial: "inbox", collection: @inboxes %>
-        </div>
+        <%= turbo_frame_tag "empty-search-results" do%>
+          <div class="search">
+            <h3>
+              Search 
+            </h3>
+            <%= render partial: "users/search_form" %>
+          </div>
+          <div class="search-results">
+          <%= turbo_frame_tag "search-results",class: "search-results-frame"%>
+            </div>
+    
+            
+          <%=turbo_frame_tag "inboxes", class: "inboxes" do %>
+              <h3>Chats</h3>
+              <%= render partial: "inbox", collection: @inboxes %>
+          <%end%>
+        <% end %>
       </div>
     </div>
   
@@ -43,6 +45,8 @@
   
   
     <div class="homepage-central-panel">
+      <%= turbo_frame_tag "chats-show", class: "chats-show" %>
+      <%= turbo_frame_tag "messages-new-form", class: "messages-new" %>
       
     </div>
     <div class="homepage-right-panel">

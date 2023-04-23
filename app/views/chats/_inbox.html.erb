@@ -1,5 +1,7 @@
+<%= link_to chat_path(inbox) do %>
 <div class="inboxes-each">
-    <%= image_tag("user",alt: "No avatar", class: 'private-chats-avatar') %>
-    <h3><%=inbox.inbox_name%></h3>
-    <h3><%=inbox.last_message%></h3>
+    <%= image_tag(inbox.users[0].avatar.variant(:small), alt: "User Avatar", class: "inboxes-each-avatar") if inbox.users[0].avatar.attached? %>
+    <h3><%=inbox.users[0].name%></h3><br>
+    <h4><%=inbox.last_message.content%></h4>
 </div>
+<% end %>
