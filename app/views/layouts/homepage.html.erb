@@ -8,14 +8,13 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= turbo_include_tags %>
 
   </head>
 
   <body>
     <%= render partial: "devise/shared/notice_alert" %>
 
-    <%= render partial: "sidebar" =%>
+    <%= render partial: "layouts/sidebar" =%>
    <%= yield %>
   </body>
 </html>

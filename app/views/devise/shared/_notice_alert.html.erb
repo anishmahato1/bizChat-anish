@@ -1,7 +1,7 @@
 <% flash.each do |type,message| %>
   <%= content_tag(:p, message, class: type) if type.present? %>
 <% end %>
-<!-- Maintains gap when flash messages are not present using single breakline -->
+<!-- Maintains gap when flash messages are not present using double breakline -->
 <% unless flash.present? %>
   <br><br>
 <% end %>
