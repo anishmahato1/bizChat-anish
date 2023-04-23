@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+    <div class="search-results-each">
+        <%= image_tag(user.avatar.variant(:small), alt: "User Avatar", class: "search-results-each-avatar") if user.avatar.attached? %>
+        <h3><%= user.name %></h3>
+        <h4><%= user.email %></h4>
+    </div>
+    <% end %>
