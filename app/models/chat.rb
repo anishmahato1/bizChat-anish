@@ -1,4 +1,6 @@
 class Chat < ApplicationRecord
+  default_scope { order(updated_at: :desc) }
+
   has_many :user_chats, dependent: :destroy
   has_many :users, through: :user_chats
 
@@ -10,9 +12,8 @@ class Chat < ApplicationRecord
   scope :channels, -> { where(is_channel: true) }
   scope :private_chats, -> { where(is_channel: false) }
 
-  scope :inboxes, lambda { |current_user|
-    private_chats.joins(:users)
-                 .where.not(users: { id: current_user })
-                 .select('DISTINCT users.name as inbox_name, users.id, chats.*')
-  }
+  def self.messages_with_sender_avatar_included(chat)
+    chat.messages.includes(sender: {avatar_attachment: :blob}).find_each
+  end
+    
 end
