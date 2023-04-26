@@ -3,7 +3,7 @@
       biz
   </div>
   <div class="sidebar-buttons">
-    <%= link_to edit_user_registration_path do %>
+    <%= link_to edit_user_registration_path,   data: { turbo_frame: "modal" } do %>
     <i class="fa-solid fa-wrench fa-2xl"></i>
     <% end %>
     <%= link_to chats_path, data: {turbo_frame: "empty-search-results"} do %>

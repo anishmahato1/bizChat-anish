@@ -13,14 +13,26 @@
     flex-direction: column;
 }
 
+.homepage-central-and-right-panels{
+    flex: 1 1 1300px;
+    /* flex: 5; */
+    display: flex;
+}
+
 .homepage-central-panel{
-    flex: 0 1 1000px;
-    background-color: blue;
+    flex: 5;
+    /* background-color: blue; */
+    /* flex-basis: 1000px; */
+    background-color: rgb(248, 250, 252);
+
 
 }
 
 .homepage-right-panel{
-    flex: 0 1 300px;
+    flex: 0 0 300px;
     background-color: brown;
+    /* flex-basis: 300px; */
+    display: flex;
+    flex-direction: column;
 }
 

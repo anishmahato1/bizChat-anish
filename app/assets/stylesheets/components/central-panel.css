@@ -1,73 +1,135 @@
 .chats-show{
-    height: calc(100vh-60px);
+    display: flex;
+    width:100%;
+    flex-direction: column-reverse;
+    height: calc(100vh - 80px);
     overflow-x: hidden;
     overflow-y: scroll;
 }
 
+.no-conversations{
+    margin: auto;
+    color: grey;
+    font-size: large;
+    font-weight: 500;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+}
+
+
 
 
 .message-box{
-    word-wrap: break-word;
-    width: fit-content;
-    max-width: 40%;
+    margin: 10px;
+    max-width: 60%;
     padding: 5px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    background-color: grey;
+    display: block;
+    align-self: start;
+    display: flex;
+}
+
+.message-box aside{
+  flex: 0 0 50px;
+  margin: 5px;
+  
+}
+
+aside img{
+  height: 50px;
+  width: 100%;
+  border-radius: 100%;
+  margin: 5px;
+  padding: 5px;
 
 }
 
+.message-box main{
+  flex: 4;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.message-time{
+  font-size: x-small;
+  color: grey;
+}
+
+.message-content{
+  word-wrap: break-word;
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
+  max-width: 100%;
+  background-color: #dfdfdf;
+  font-size: smaller;
+}
+
+.main img{
+ width: 200px;
+ height: 200px;
+
+}
+
+.sender-name{
+  font-size: x-small;
+  color: grey;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.message-new{
-    position: sticky;
-
-    bottom: 0;
+.messages-new{
+    display: block;
+    float: bottom;
     width:100%;
-    height: 60px;
-}
-
-.messages-new-form{
-    width:80%;
-    margin: auto;
-    height: 40px; 
-    padding: 10px ;
-    position: relative;
+        height: 80px;
 
 }
 
+.messages-new-form {
+    position:relative;
+    width: 80%;
+    margin: auto
+  }
 
-
-.message-input-content{
+  .messages-new-form input[type="text"]{
+    padding-right:80px;
     width: 100%;
-    height: 100%;
-    padding: 5px;
-}
+    background-color: white;
+  }
+  
 
-.message-input-picture{
-    position: absolute;
-    right: 50px;
-}
+  
 
-.message-send-btn{
+
+  .message-picture {
+    display: none;
+  }
+
+  .messages-new-form label{
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
     position: absolute;
-    right: 0;
-}
+    right: 70px;
+    bottom: 60px;
+
+  }
+  
+
+  .messages-new-form input[type="submit"]{
+    width:60px;
+    position:absolute;
+    bottom: 65px;
+    right: 6px;
+    background: white;
+    color: black;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+
+  }
+  
 

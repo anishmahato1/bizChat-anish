@@ -1,7 +1,0 @@
-<%= form_with(model: [chat,message], class: "messages-new-form") do |f| %> 
-<%= f.text_field :content, class: "message-input-content", autocomplete: "off" %>
- <%= f.file_field :picture, class: "message-input-picture" do %>
-   <i class="fas fa-upload"></i> 
-   <% end %>
- <%= f.submit, data:{disable_with: false}, class: "message-send-btn"%>
- <% end %>

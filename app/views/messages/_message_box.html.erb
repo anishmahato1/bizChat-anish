@@ -1,0 +1,12 @@
+<%= content_tag("div", class: "message-box send-by-#{message.sender_id}") do %>
+    <aside>
+        <%= image_tag url_for(message.sender.avatar.variant(:small)) %>
+    </aside>
+    <main>
+    <div class="message-time"><%= formatted_time(message.created_at) %></div>
+    <%= content_tag("div",message.content,class: "message-content")  if message.content.present? %>
+    <%= image_tag url_for(message.image.variant(:medium)) if message.image.attached?%>
+    <div class="sender-name"><%= message.sender.name %></div>
+    </main>
+ 
+<% end %>

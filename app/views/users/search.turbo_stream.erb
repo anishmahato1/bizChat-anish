@@ -2,7 +2,7 @@
 
 <%= turbo_stream.update "search-results" do%>
     <h3>Users</h3>
-    <%= render partial: "search_results", collection: @users  %>
+    <%= render partial: "search_results", collection: @users, as: :user  %>
 <% end %>
 
 

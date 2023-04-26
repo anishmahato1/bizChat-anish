@@ -1,0 +1,38 @@
+<%= turbo_frame_tag "central-and-right-panels", class: "homepage-central-and-right-panels"  do %>
+  
+  <%= turbo_stream_from @chat, "messages" %> 
+  
+  <div class="homepage-central-panel">
+    <%= turbo_frame_tag "chats-show", class: "chats-show" do%>
+      <% if @messages.present? %>  
+          <%= render partial:"messages/message_box", collection: @messages, as: :message %>
+      <% end %>
+    <% end %>
+
+    <%= turbo_frame_tag "messages-new", class: "messages-new" do%>
+      <%= render partial:"messages/new_message_form" ,locals: { chat: @chat, message: @chat.messages.build } %>
+    <% end %>
+  </div>
+  <div class="homepage-right-panel">
+    <%= turbo_frame_tag "right-panel" do%>
+
+      <% if @chat.is_channel? %>
+        <div class="right-channel-card">
+          <div class="channel-logo"><%= @chat.channel.name[0] %></div>
+          <h2><%= @chat.channel.name %><h2> 
+          <div class="channel-name">Group</div>
+          <%= link_to edit_channel_path(@chat.channel) do %>
+            <%= image_tag("Setting.png", alt: "Settings Logo") %>
+          <% end %>
+          
+          <%= @chat.channel.admin.present? ? (render partial: "users/search_results", locals: { user: @chat.channel.admin }) : "No Admin".html_safe %>
+      <% else %>
+        <div class="user-card recepient-card">
+            <%= image_tag(@recepient.avatar.variant(:thumb), alt: "Recepient Avatar") if @recepient.avatar.attached? %>
+            <h2><%=@recepient.name%></h2> 
+        </div>
+      <% end %> 
+    <% end%> 
+  </div>
+<% end %>
+
