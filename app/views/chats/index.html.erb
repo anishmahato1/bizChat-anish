@@ -1,55 +1,53 @@
+<!-- <%= turbo_stream_from current_user, "channels" %> -->
+<!-- <%= turbo_stream_from current_user, "inboxes" %> -->
 <div class="homepage-box">
 
-    <div class="homepage-left-panel">
-      <div class="user-card">
-        <h1>Chat</h1>
-          <%= image_tag(current_user.avatar.variant(:thumb), alt: "User Avatar") if current_user.avatar.attached? %>
-         <h2><%=current_user.name%></h2> 
-         <p>Active</p>
-      </div>
-  
-      <div class="homepage-left-panel-below">
-        <div class="channels-box">
-          <h3>
-            Channels
-            <%= image_tag("add_button", class: "btn-create") %>
-          </h3>
-          <%= turbo_frame_tag "channels" do%>
-          <div class="channels">
-            <%= @channels.any? ? render(partial: "channel", collection: @channels) : "<p class='no-groups'>No Groups</p>".html_safe %>
-          </div>
-          <% end %>
+  <div class="homepage-left-panel">
+    <div class="user-card">
+      <h1>Chat</h1>
+        <%= image_tag(current_user.avatar.variant(:thumb), alt: "User Avatar") if current_user.avatar.attached? %>
+        <h2><%=current_user.name%></h2> 
+        <p>Active</p>
+    </div>
+
+    <div class="homepage-left-panel-below">
+      <div class="channels-box">
+        <h3>
+          Channels
+          <%= image_tag("add_button", class: "btn-create") %>
+        </h3>
+        <%= turbo_frame_tag "channels" do%>
+        <div class="channels">
+          <%= @channels.any? ? render(partial: "channel", collection: @channels) : "<p class='no-groups'>No Groups</p>".html_safe %>
         </div>
-        <%= turbo_frame_tag "empty-search-results" do%>
-          <div class="search">
-            <h3>
-              Search 
-            </h3>
-            <%= render partial: "users/search_form" %>
-          </div>
-          <div class="search-results">
-          <%= turbo_frame_tag "search-results",class: "search-results-frame"%>
-            </div>
-    
-            
-          <%=turbo_frame_tag "inboxes", class: "inboxes" do %>
-              <h3>Chats</h3>
-              <%= render partial: "inbox", collection: @inboxes %>
-          <%end%>
         <% end %>
       </div>
-    </div>
+      <%= turbo_frame_tag "empty-search-results" do%>
+        <div class="search">
+          <h3>
+            Search 
+          </h3>
+          <%= render partial: "users/search_form" %>
+        </div>
+        <div class="search-results">
+        <%= turbo_frame_tag "search-results",class: "search-results-frame"%>
+          </div>
   
-  
-  
-  
-  
-    <div class="homepage-central-panel">
-      <%= turbo_frame_tag "chats-show", class: "chats-show" %>
-      <%= turbo_frame_tag "messages-new-form", class: "messages-new" %>
-      
-    </div>
-    <div class="homepage-right-panel">
-      
+          
+        <%=turbo_frame_tag "inboxes", class: "inboxes" do %>
+            <h3>Chats</h3>
+            <%= render partial: "inbox", collection: @inboxes %>
+        <%end%>
+      <% end %>
     </div>
   </div>
+
+    <%= turbo_frame_tag "central-and-right-panels", class: "homepage-central-and-right-panels" do %>
+      <div class="homepage-central-panel">
+        <%= turbo_frame_tag "chats-show", class: "chats-show" %>
+      <div class="no-conversations"> No Conversations </div> 
+      </div>
+
+      <div class="homepage-right-panel"></div>
+    <% end %>
+</div>
