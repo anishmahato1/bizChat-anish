@@ -8,13 +8,21 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <style> .send-by-<%=current_user.id%> {align-self: end; flex-direction: row-reverse}
+            .send-by-<%=current_user.id%> main {align-items: flex-end}
+            .send-by-<%=current_user.id%> .message-content  {color: white; background-color:rgb(179, 179, 247)  }
+
+    </style>
 
   </head>
 
   <body>
-    <%= render partial: "devise/shared/notice_alert" %>
+    <%= render partial: "layouts/sidebar" %>
+    <div id="flash" class="flash">
+      <%= render "layouts/flash" %>
+    </div>
+    <%= yield %>
+    <%= render partial: "layouts/modal" %>
 
-    <%= render partial: "layouts/sidebar" =%>
-   <%= yield %>
   </body>
 </html>
