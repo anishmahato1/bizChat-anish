@@ -4,7 +4,7 @@ class User < ApplicationRecord
   enum gender: { male: 0, female: 1, other: 2 }
 
   # association macros
-  has_many :user_chats
+  has_many :user_chats, dependent: :destroy
   has_many :chats, through: :user_chats
 
   has_many :channels, -> { includes(:chat) }, through: :chats
@@ -12,6 +12,9 @@ class User < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [120, 150]
     attachable.variant :small, resize_to_limit: [60, 60]
   end
+
+  # scopes
+  scope :except_current_user, ->(user) { where.not(id: user.id) }
 
   # validations macros
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, if: :domain_is_ok
@@ -30,7 +33,7 @@ class User < ApplicationRecord
   def self.inboxes(current_user)
     current_user.chats.private_chats.includes({ users: { avatar_attachment: :blob } },
                                               :last_message)
-                .where.not(users: { id: current_user })
+                .filter_current_user(current_user).where.not(last_message_id: nil)
   end
 
   # methods for ransack gem
