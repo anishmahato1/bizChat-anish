@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       remove_contents_from_new_message_form
+
     else
       render :new, status: :unprocessable_entity
     end

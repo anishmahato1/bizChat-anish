@@ -11,31 +11,23 @@ class UsersController < ApplicationController
   def show
     set_recepient
     if @recepient == current_user
-      render turbo_stream: turbo_stream.update('flash', flash.now[:notice] = 'Checked Self')
-      return
+      flash[:notice] = 'This is You!'
+      redirect_to chats_path
+    else
+      set_private_chat_if_exists_else_create
+      redirect_to chat_path(@chat), status: :see_other
     end
-
-    set_private_chat_if_exists_else_create
-
-    @messages = Chat.messages_with_image_and_sender_avatar_included(@chat)
-
-    render 'chats/show'
   end
 
   private
 
-  def create_private_chat_with(recepient)
-    Chat.create(users: [recepient, current_user])
-  end
-
+  # set recepient for private chat to show their info
   def set_recepient
     @recepient = User.find_by(id: params[:id])
   end
 
+  # finds private chat if already exist between users else create
   def set_private_chat_if_exists_else_create
-    @chat = Chat.private_chat_between(current_user, @recepient).first
-    return @chat if @chat.present?
-
-    @chat = create_private_chat_with(@recepient)
+    @chat = Chat.private_chat_between(current_user, @recepient).first || Chat.create(users: [@recepient, current_user])
   end
 end
