@@ -55,7 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_025910) do
     t.integer "last_message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["last_message_id"], name: "index_chats_on_last_message_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -102,7 +101,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_025910) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "channels", "chats"
   add_foreign_key "channels", "users", column: "admin_id"
-  add_foreign_key "chats", "messages", column: "last_message_id"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "user_chats", "chats"
