@@ -1,15 +1,11 @@
  <%= form_with(model: [chat, message], class: "messages-new-form") do |f| %>
-    <%= f.text_field :content, class: "message-content", autocomplete: "off", autofocus: true %>
+    <div class="wrap"><%= f.text_field :content, class: "message-content", autocomplete: "off", autofocus: true %>
     <%= f.file_field :image, class: "message-picture" %>
     <%= f.label :image, class: "message-input-picture-label" do %>
       <i class="fa-solid fa-images"></i>
     <% end %>
-    <%= f.submit "Send"%>
-    <%= render "devise/shared/error_messages",resource: message, field: :content %>
-    <%= render "devise/shared/error_messages",resource: message, field: :content %>
-
-
-
+    <%= f.submit "Send"%></div>
+    <%= render "layouts/errors",resource: message %>
 <% end %>
 
 
