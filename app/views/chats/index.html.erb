@@ -12,10 +12,10 @@
 
     <div class="homepage-left-panel-below">
       <div class="channels-box">
-        <h3>
+        <h2>
           Channels
-          <%= image_tag("add_button", class: "btn-create") %>
-        </h3>
+          <%=link_to image_tag("add_button", class: "btn-create"), new_channel_path, data: {turbo_frame: "central-and-right-panels"} %>
+        </h2>
         <%= turbo_frame_tag "channels" do%>
         <div class="channels">
           <%= @channels.any? ? render(partial: "channel", collection: @channels) : "<p class='no-groups'>No Groups</p>".html_safe %>
@@ -24,9 +24,9 @@
       </div>
       <%= turbo_frame_tag "empty-search-results" do%>
         <div class="search">
-          <h3>
+          <h2>
             Search 
-          </h3>
+          <h2>
           <%= render partial: "users/search_form" %>
         </div>
         <div class="search-results">
@@ -35,7 +35,7 @@
   
           
         <%=turbo_frame_tag "inboxes", class: "inboxes" do %>
-            <h3>Chats</h3>
+            <h2>Chats</h2>
             <%= render partial: "inbox", collection: @inboxes %>
         <%end%>
       <% end %>
@@ -43,11 +43,7 @@
   </div>
 
     <%= turbo_frame_tag "central-and-right-panels", class: "homepage-central-and-right-panels" do %>
-      <div class="homepage-central-panel">
-        <%= turbo_frame_tag "chats-show", class: "chats-show" %>
       <div class="no-conversations"> No Conversations </div> 
-      </div>
 
-      <div class="homepage-right-panel"></div>
     <% end %>
 </div>

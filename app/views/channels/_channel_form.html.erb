@@ -1,0 +1,21 @@
+  <div class="form-container form-edit">
+    <%= form_with model:channel, data:{turbo_frame: "central-and-right-panels"} do |form| %>
+      <h2 class="form-title"><%= title %></h2>
+
+      <div class="field">
+        <%= form.label :name,"Channel Name:" ,class: "label-text"  %>
+        <%= form.text_field :name, required: true, autofocus: true, maxlength: 20 %>
+        <%= render "devise/shared/error_messages",resource: channel, field: :name %>
+      </div>
+      <div class="field">
+        <%= form.label :description,"Description:" ,class: "label-text"  %>
+        <%= form.text_area :description, placeholder: "(Optional)", maxlength: 100 %>
+        <%= render "devise/shared/error_messages",resource: channel, field: :description %>
+
+      </div>
+      <div class="submit">
+        <%= form.submit %>
+      </div>
+    <% end %>
+
+  </div>
