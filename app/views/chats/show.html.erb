@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "central-and-right-panels", class: "homepage-central-and-right-panels"  do %>
   <div id="flash" class="flash">
-    <%= render "layouts/flash" %>
+    <%= render "shared/flash" %>
   </div>
 
   <div class="homepage-central-panel">
@@ -25,11 +25,20 @@
 
       <% if @chat.is_channel? %>
         <div class="right-channel-card">
+          <%if current_user==@chat.channel.admin%>
+            <%= link_to channel_path(@chat.channel), data: {turbo_method: :delete,turbo_frame: "_top", confirm: 'Are you sure?' },class: "delete-channel" do%>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          <% end %>
           <div class="channel-logo"><%= @chat.channel.name[0] %></div>
           <h2><%= @chat.channel.name %><h2> 
           <h3><%= (current_user==@chat.channel.admin) ? "Channel Admin" : "Channel Member"%></h3>
           <%= link_to image_tag("Setting.png", alt: "Settings Logo"), edit_channel_path(@chat.channel), data: {turbo_frame: "central-panel" }%>
-          </div>
+        </div>
+        <div class="show-participants">
+        <%= image_tag("users", alt: "Participants", class: "participants-icon") %>
+        <%= link_to "Participants", channel_participants_path(@chat.channel), class: "participants-show-link"%>
+      </div> 
       <% else %>
         <div class="user-card recepient-card">
           <%= image_tag(@recepient.avatar.variant(:thumb), alt: "Recepient Avatar") if @recepient.avatar.attached? %>
