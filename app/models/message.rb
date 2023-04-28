@@ -11,7 +11,7 @@ class Message < ApplicationRecord
   validates :content, presence: true, unless: -> { image.attached? }
   validate :attachment_must_be_image_type, if: -> { image.attached? }
 
-  after_commit :update_last_message_in_chat
+  after_create_commit :update_last_message_in_chat
 
   after_create_commit lambda {
                         broadcast_prepend_to [chat, 'messages'],
