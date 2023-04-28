@@ -4,6 +4,4 @@ class Channel < ApplicationRecord
 
   validates :name, presence: true, length: { in: 3..20 }, uniqueness: true
   validates :description, length: { maximum: 100 }, if: -> { description.present? }
-
-  # scope :channel_with_users, -> {includes(chat:)}
 end

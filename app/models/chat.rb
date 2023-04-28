@@ -13,8 +13,6 @@ class Chat < ApplicationRecord
   scope :private_chats, -> { where(is_channel: false) }
   scope :filter_current_user, ->(current_user) { where.not(users: { id: current_user }) }
 
-  # after_update_commit broadcast_prepend_later_to
-
   def self.messages_with_image_and_sender_avatar_included(chat)
     chat.messages.with_attached_image.includes(sender: { avatar_attachment: :blob })
   end
