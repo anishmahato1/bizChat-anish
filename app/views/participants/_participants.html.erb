@@ -1,0 +1,10 @@
+<%= turbo_frame_tag user do %>
+  <div class="search-results-each participants-each">
+    <%= image_tag(user.avatar.variant(:small), alt: "User Avatar", class: "search-results-each-avatar") if user.avatar.attached? %>
+    <h3><%= user.name %></h3>
+    <h4><%= user.email %></h4>
+    <% if admin? and @channel.admin!=user%>
+      <%= button_to channel_remove_participants_path(@channel,user),method: :delete,class: "delete-btn" do %><i class="fa-solid fa-trash-can"></i><% end %>
+    <% end %>
+  </div>
+<% end %>
