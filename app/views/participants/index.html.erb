@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "right-panel" do%>
+  <%= link_to @channel.chat, class: "back-arrow" do %><i class="fa-solid fa-arrow-left"></i><% end %>
+  <h2 class="participants-title">Participants</h2>
+  <%=turbo_frame_tag "participants" do %>
+      <% @participants.each do |participant| %>
+        <%= render partial: "participants", locals:{user: participant, channel: @channel} %>
+      <% end %>
+  <% end %>
+  <% if admin? %>
+  <div class="search">
+    <h2 class="participants-add">
+      Add Participants 
+    <h2>
+    <%= render partial: "participants/search_form" %>
+  </div>
+  
+  <div class="search-results right ">
+  <%= turbo_frame_tag "search-results-right",class: "search-results-frame"%>
+  </div>
+  <% end %>
+<% end %>

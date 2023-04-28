@@ -1,2 +1,8 @@
-<h2 class="form-title">New channel</h2>
-<%= render partial: "new_channel_form", locals: {channel: @channel} %>
+<%= turbo_frame_tag "central-and-right-panels" do %>
+  <div class="box-container box-edit">
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-times" id="cancel-btn"></i>
+  <%end%>
+  <%= render partial: "channel_form", locals: {channel: @channel, title: "New Channel"} %>
+  </div>
+<% end %>

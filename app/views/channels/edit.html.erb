@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "central-panel" do %>
+<div class="box-container channel-edit">
+  <%= link_to chat_path(@channel.chat), data: {turbo_frame: "central-and-right-panels"} do %>
+  <i class="fa-solid fa-times" id="cancel-btn"></i>
+  <%end%>
+  <%= render partial: "channel_form", locals: {channel: @channel, title: "Channel Settings"} %>
+</div> 
+<% end %>

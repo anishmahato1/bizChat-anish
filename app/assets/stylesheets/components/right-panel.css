@@ -1,29 +1,103 @@
-.recepient-card{
+.recepient-card {
     flex-basis: 250px;
-    padding-top: 75px; 
+    padding-top: 75px;
 }
 
-.right-channel-card{
+.right-channel-card {
 
     flex: 0 1 260px;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 95px;
 
 }
-.right-channel-card > .channel-logo{
-    transform: scale(1.8);
+
+.right-channel-card .channel-logo {
+    transform: scale(1.7);
     margin-bottom: 40px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.right-channel-card img{
+.right-channel-card img {
     margin-top: 5px;
     scale: 0.8;
 }
-.right-channel-card img:hover{
+
+.right-channel-card img:hover {
     transform: scale(1.2);
     transition: transform 0.2s ease-in-out;
-  }
+}
+
+.participants-each .delete-btn {
+    position: absolute;
+    right: 40px;
+    bottom: 35px;
+    scale: 1.4;
+    color: red;
+    border: none;
+    outline: none;
+}
+
+
+.back-arrow {
+    display: inline-block;
+    margin: 5px;
+    scale: 1.2;
+}
+
+.back-arrow:hover {
+    transform: scale(1.2);
+}
+
+.participants-title {
+    display: inline-block;
+    margin: 5px;
+
+}
+
+.add-participants-btn {
+    position: absolute;
+    right: 30px;
+    bottom: 35px;
+    scale: 1.4;
+    color: rgb(127, 149, 224);
+    border: none;
+    outline: none;
+    border-radius: 100%;
+}
+
+.participants-add {
+    font-weight: 500;
+    font-size: large;
+    margin: 20px;
+}
+
+.participants-show{
+    position: relative;
+
+}
+
+.participants-show-link {
+    position: absolute;
+    font-size: larger;
+    font-weight: medium;
+    color: rgb(65, 93, 109);
+    right: 124px;
+  
+}
+
+
+.participants-icon{
+    display: inline-block;
+    position: absolute;
+    right: 240px;
+}
+
+.delete-channel{
+    position: fixed;
+    top:5px;
+    right: 10px;
+    color: red; 
+}

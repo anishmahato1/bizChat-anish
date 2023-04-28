@@ -1,0 +1,9 @@
+<%= turbo_stream.update "search-results-right" do%>
+    <h3>Users</h3>
+    <% @users.each do |user|%>
+        <%= render partial: "search_results", locals: {user: user, channel: @channel}  %>
+    <% end %>
+<% end %>
+
+
+

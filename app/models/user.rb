@@ -45,6 +45,10 @@ class User < ApplicationRecord
     []
   end
 
+  # to raise exception related to authorization
+  class NotAuthorized < StandardError
+  end
+
   private
 
   # method to check subdomain of registering user

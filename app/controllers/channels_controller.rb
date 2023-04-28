@@ -1,32 +1,63 @@
 class ChannelsController < ApplicationController
+  include ParticipantsHelper
+  before_action :set_channel, only: %i[edit update destroy]
+  before_action :authenticate_admin!, only: %i[update destroy]
+
   def new
     @channel = Channel.new
   end
 
   def create
     @chat = Chat.new(is_channel: true)
-    @channel = @chat.build_channel(channels_params)
+    @channel = @chat.build_channel(channel_params)
 
     set_admin_and_include_in_users
 
     if @channel.save
-      render :new, status: :unprocessable_entity
+      redirect_to chat_path(@channel.chat), status: :see_other, notice: 'Channel Created Successfully!'
     else
-      render :create, flash.now[:notice] = 'Channel Created Successfully!'
+      render :new, status: :unprocessable_entity
     end
   end
 
-  def destroy; end
+  def edit; end
+
+  def update
+    if @channel.update(channel_params)
+      redirect_to chat_path(@channel.chat), status: :see_other, notice: 'Channel Updated Successfully'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    begin
+      @channel.destroy
+      flash[:notice] = 'Channel was successfully deleted.'
+    rescue ActiveRecord::InvalidForeignKey
+      flash[:error] = 'Failed to delete channel due to dependent records.'
+    end
+
+    redirect_to chats_path, status: :see_other
+  end
 
   private
 
   # Only allow a list of trusted parameters through.
-  def channels_params
+  def channel_params
     params.require(:channel).permit(:name, :description)
   end
 
   def set_admin_and_include_in_users
     @channel.admin = current_user
     @chat.users << @channel.admin
+  end
+
+  def set_channel
+    @channel = Channel.find(params[:id])
+  end
+
+  def authenticate_admin!
+    raise User::NotAuthorized unless admin?
   end
 end

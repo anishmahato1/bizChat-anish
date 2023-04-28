@@ -4,11 +4,12 @@ class Message < ApplicationRecord
   belongs_to :sender, class_name: 'User'
   belongs_to :chat, touch: true
 
-  has_one_attached :image do |image|
+  has_one_attached :image, dependent: :destroy do |image|
     image.variant :medium, resize_to_limit: [200, 200]
   end
 
   validates :content, presence: true, unless: -> { image.attached? }
+  validate :attachment_must_be_image_type, if: -> { image.attached? }
 
   after_commit :update_last_message_in_chat
 
@@ -24,5 +25,11 @@ class Message < ApplicationRecord
 
   def update_last_message_in_chat
     chat.update(last_message_id: id)
+  end
+
+  def attachment_must_be_image_type
+    return if image.content_type.in?(%w[image/jpeg image/png image/gif])
+
+    errors.add(:image, 'must be a JPEG, PNG, GIF')
   end
 end
