@@ -30,6 +30,17 @@ class ChannelsController < ApplicationController
     end
   end
 
+  def destroy
+    begin
+      @channel.destroy
+      flash[:notice] = 'Channel was successfully deleted.'
+    rescue ActiveRecord::InvalidForeignKey
+      flash[:error] = 'Failed to delete channel due to dependent records.'
+    end
+
+    redirect_to chats_path, status: :see_other
+  end
+
   private
 
   # Only allow a list of trusted parameters through.

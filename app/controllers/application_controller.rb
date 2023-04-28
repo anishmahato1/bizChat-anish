@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
   before_action :authenticate_user!, unless: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_query_object_for_ransack
 
   protected
 
@@ -26,5 +27,9 @@ class ApplicationController < ActionController::Base
 
   def display_flash_with_turbo_stream
     render turbo_stream: turbo_stream.prepend('flash', partial: 'shared/flash')
+  end
+
+  def set_query_object_for_ransack
+    @q = User.ransack(params[:q])
   end
 end
