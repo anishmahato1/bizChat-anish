@@ -191,12 +191,12 @@ margin: auto;}
 .inboxes-each h4, .search-results-each h3 , .search-results-each h4{
     padding-left: 80px;
     font-weight: 500;
-    color:rgb(77, 73, 73);
+    color:rgb(58, 56, 56) !important;
 }
 
 .inboxes-each h4, .search-results-each h4{
-    font-weight: 400;
-    font-size: x-small;
+    font-weight: 500;
+    font-size: small;
     opacity: 50%;
     overflow: hidden;
 }

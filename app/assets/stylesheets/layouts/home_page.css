@@ -27,7 +27,7 @@
 
 .homepage-right-panel{
     flex: 0 1 360px;
-    background-color: brown;
+    background-color: white;
     display: flex;
     flex-direction: column;
 }
