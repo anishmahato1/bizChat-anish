@@ -4,11 +4,15 @@ Introduction
 
   This repository contains the source code for a single page chat application built using Ruby on Rails. The application allows users to create accounts, sign in,create channels and send messages in channels, or chat with each other in real time.
 
+
+
 Prerequisites
 
   Before you begin, make sure you have the following installed on your system:
   * ruby 3.1.3
   * rails 7.0.4.3
+
+
 
 Getting Started
 
@@ -20,7 +24,7 @@ Getting Started
 
 2. Change into the directory
 
-    $ cd chat-app
+    $ cd bizChat-anish
 
 3. Install the required gems:
 
@@ -36,6 +40,8 @@ Getting Started
     $ rails s
 
 And now you can visit the site with the URL http://localhost:3000
+
+
 
 
 
