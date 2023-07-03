@@ -80,19 +80,20 @@
 }
 
 .participants-show-link {
-    position: absolute;
+    position: relative;
     font-size: larger;
     font-weight: medium;
     color: rgb(65, 93, 109);
-    right: 124px;
+    left: 110px;
   
 }
 
 
 .participants-icon{
     display: inline-block;
-    position: absolute;
-    right: 240px;
+    position: relative;
+    left: 100px;
+    top: 10px;
 }
 
 .delete-channel{

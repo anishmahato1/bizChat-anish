@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
     position: fixed;
     left: 0;
     height: 100vh;
@@ -11,27 +11,27 @@
 
 }
 
-.sidebar .logo-first{
-    
+.sidebar .logo-first {
+
     border: 2px solid var(--white-color);
     margin-top: var(--space-m);
 }
 
-.sidebar-buttons{
+.sidebar-buttons {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     min-height: 22vh;
     justify-content: space-between;
     margin-top: 25vh;
 }
 
 
-.sidebar-buttons i{
-    display: block; 
+.sidebar-buttons i {
+    display: block;
     color: var(--white-color);
 }
 
 .sidebar-buttons i:hover {
     transform: scale(1.2);
     transition: transform 0.2s ease-in-out;
-  }
+}

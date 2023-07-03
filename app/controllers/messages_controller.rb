@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :set_chat, :authenticate_if_user_belongs_to_chat!
   def create
-    set_chat
-
     @message = @chat.messages.new(message_params)
     @message.sender_id = current_user.id
 
@@ -21,6 +20,10 @@ class MessagesController < ApplicationController
 
   def set_chat
     @chat = Chat.find_by(id: params[:chat_id])
+  end
+
+  def authenticate_if_user_belongs_to_chat!
+    raise User::NotAuthorized unless @chat.users.include?(current_user)
   end
 
   def remove_contents_from_new_message_form

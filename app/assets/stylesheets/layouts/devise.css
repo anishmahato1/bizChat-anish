@@ -1,24 +1,23 @@
   .box-container {
     display: flex;
-    box-shadow: 0 4px 8px 0  rgba(0, 0, 0, 0.2);
-    padding: var(--space-xxl) var(--space-xl) ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: var(--space-xxl) var(--space-xl);
     margin: auto;
-    
+
   }
-  
-  .signin-box-container{
+
+  .signin-box-container {
     padding: 10px 220px 50px 220px;
   }
-  
+
   .vertical-center {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
   }
-  
-  
-  
-  .image-container{
+
+
+
+  .image-container {
     padding-left: 50px;
   }
-  

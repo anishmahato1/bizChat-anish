@@ -10,49 +10,46 @@
 }
 
 html {
-    overflow-y: scroll;
-    height: 100%;
-  }
+  overflow-y: scroll;
+  height: 100%;
+}
 
 body {
-    display: flex;
-    min-height: 100%;
+  display: flex;
+  min-height: 100%;
 
-    font-family: "Roboto";
-    background-color: var( --white-color);
-    font-size: var(--font-size-m);
-    font-weight: 500;
-    font-style: normal;
-    line-height: 1.5;
-  }
+  font-family: "Roboto";
+  background-color: var(--white-color);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.5;
+}
 
-  h1 {
-    font-size: var(--font-size-xl);
-  }
-  
-  h2 {
-    font-size: var(--font-size-l);
-  }
-  
-  h3 {
-    font-size: var(--font-size-m);
-  }
+h1 {
+  font-size: var(--font-size-xl);
+}
 
-  a {
-    text-decoration: none;
-    font-size: var(--font-size-s);
-    transition: color 200ms;
-    
-  }
-  
-  a:hover {
-    color: var(--red-light-color);
-  }
+h2 {
+  font-size: var(--font-size-l);
+}
 
-  img {
+h3 {
+  font-size: var(--font-size-m);
+}
+
+a {
+  text-decoration: none;
+  font-size: var(--font-size-s);
+  transition: color 200ms;
+
+}
+
+a:hover {
+  color: var(--red-light-color);
+}
+
+img {
   display: block;
   max-width: 100%;
 }
-  
-
-  

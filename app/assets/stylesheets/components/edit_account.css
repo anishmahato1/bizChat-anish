@@ -1,23 +1,22 @@
-.box-edit{
+.box-edit {
     margin: auto 300px auto 100px;
     border-radius: 40px;
     display: block !important;
 }
 
- .form-edit{
+.form-edit {
     width: 100%;
 }
 
-.edit_user{
+.edit_user {
     display: flex;
     flex-direction: column;
 }
 
-.edit_user .avatar{
+.edit_user .avatar {
     align-self: center;
 }
 
-.edit_user .select-avatar{    
+.edit_user .select-avatar {
     align-self: center;
 }
-
