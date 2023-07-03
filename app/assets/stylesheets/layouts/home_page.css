@@ -1,6 +1,6 @@
 .homepage-box {
     height: 100vh;
-    width: calc(100vw - 70px);
+    width: calc(100vw - 85px);
     position: fixed;
     right: 0;
     display: flex;

@@ -9,33 +9,35 @@
     </div>
 
     <div class="homepage-left-panel-below">
-      <div class="channels-box">
-        <h2>
-          Channels
-          <%=link_to image_tag("add_button", class: "btn-create"), new_channel_path, data: {turbo_frame: "central-and-right-panels"} %>
-        </h2>
-        <%= turbo_frame_tag "channels" do%>
-        <div class="channels">
-          <%= @channels.any? ? render(partial: "channel", collection: @channels) : "<p class='no-groups'>No Groups</p>".html_safe %>
-        </div>
-        <% end %>
-      </div>
-      <%= turbo_frame_tag "empty-search-results" do%>
-        <div class="search">
+      <%= turbo_frame_tag "refresh-left-panel" do%>
+        <div class="channels-box">
           <h2>
-            Search 
-          <h2>
-          <%= render partial: "users/search_form" %>
-        </div>
-        <div class="search-results">
-        <%= turbo_frame_tag "search-results",class: "search-results-frame"%>
+            Channels
+            <%=link_to image_tag("add_button", class: "btn-create"), new_channel_path, data: {turbo_frame: "central-and-right-panels"} %>
+          </h2>
+          <%= turbo_frame_tag "channels" do%>
+          <div class="channels">
+            <%= @channels.any? ? render(partial: "channel", collection: @channels) : "<p class='no-groups'>No Groups</p>".html_safe %>
           </div>
-  
-          
-        <%=turbo_frame_tag "inboxes", class: "inboxes" do %>
-            <h2>Chats</h2>
-            <%= render partial: "inbox", collection: @inboxes %>
-        <%end%>
+          <% end %>
+        </div>
+        <%= turbo_frame_tag "empty-search-results" do%>
+          <div class="search">
+            <h2>
+              Search 
+            <h2>
+            <%= render partial: "users/search_form" %>
+          </div>
+          <div class="search-results">
+          <%= turbo_frame_tag "search-results",class: "search-results-frame"%>
+            </div>
+
+            
+          <%=turbo_frame_tag "inboxes", class: "inboxes" do %>
+              <h2>Chats</h2>
+              <%= render partial: "inbox", collection: @inboxes %>
+          <%end%>
+        <% end %>
       <% end %>
     </div>
   </div>

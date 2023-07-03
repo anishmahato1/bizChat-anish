@@ -30,6 +30,12 @@
     transition: transform 0.2s ease-in-out;
 }
 
+.show-participants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .participants-each .delete-btn {
     position: absolute;
     right: 40px;
@@ -84,7 +90,6 @@
     font-size: larger;
     font-weight: medium;
     color: rgb(65, 93, 109);
-    left: 110px;
   
 }
 
@@ -92,8 +97,6 @@
 .participants-icon{
     display: inline-block;
     position: relative;
-    left: 100px;
-    top: 10px;
 }
 
 .delete-channel{
