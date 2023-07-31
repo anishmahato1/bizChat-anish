@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
   libpq-dev \
   nodejs \
   sqlite3 \
-  libsqlite3-dev
+  libsqlite3-dev \
+  libvips-tools
 
 # Install Rails gem
 RUN gem install rails -v '7.0.4'
